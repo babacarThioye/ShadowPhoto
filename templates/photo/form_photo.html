@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block contenu %}
+
+<div class="container py-5 col-4">
+    <form class="form" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <input class="btn btn-outline-success w-100 mt-4" type="submit" value="{{ act }}"/>
+    </form>
+</div>
+
+{% endblock %}

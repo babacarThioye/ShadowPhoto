@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% load static %} {% block contenu %}
+<div class="row my-3 mx-5">
+    <div class="col-md-6 my-5 mt-5 mb-5">
+        <h1 class="my-5">Photo rangée dans :</h1>
+        <ul>
+            {% for album in albums %}
+            <a class="text-decoration-none link-secondary" href="{% url 'one_album' album.0 %}">
+                <li class="display-6 " type="circle">
+                    {{ album.1 }}<small>{% if pk_a == album.0 %}(Album courant){% endif %}</small>
+                </li>
+            </a>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <a class="col-md-4 btn btn-outline-warning my-3 mx-3" href="{% url 'update_photo' pk_a photo.id %}">Modifier
+                photo</a>
+            <a class="col-md-4 btn btn-outline-danger my-3 mx-5 align-right"
+               href="{% url 'delete_photo' pk_a photo.id %}"
+               onclick="return confirm('Etes-vous sûr de vouloir supprimer cette photo de l\'album');">Supprimer
+                photo</a>
+        </div>
+        <img alt="{{ photo.image }}" class="rounded" src="{% static 'photos/' %}{{photo.image}}"
+             style="width:100%; height:70%"/>
+        <h4 class="mb-5 pb-5 py-3">Date et heure : {{ photo.date }} à {{ photo.heure }}</h4>
+    </div>
+</div>
+
+{% endblock %}

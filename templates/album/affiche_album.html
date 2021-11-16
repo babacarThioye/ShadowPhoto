@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% load static %} {% block contenu %}
+<div class="container pt-3 col-6">
+    <h2 class="text-center">Album <strong>{{ album.titre }}</strong></h2>
+    <a class="btn btn-outline-dark w-100 my-4" href="{% url 'add_photo' album.id %}">Ajouter nouvelle photo</a>
+</div>
+<div class="container mb-5">
+    <div class="row">
+        {% for photo in photos %}
+        <div class="col-4 py-0">
+            <img alt="{{ photo.1 }}" class="rounded pb-2" src="{% static 'photos/' %}{{ photo.1 }}"
+                 style="width:100%; height:75%">
+            <a class="btn btn-outline-warning w-100" href="{% url 'one_photo' album.id photo.0 %}">Détails</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

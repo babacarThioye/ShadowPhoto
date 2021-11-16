@@ -1,0 +1,12 @@
+body{
+    background : #C0C0C0;
+}
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+.cover-container {
+  max-width: 42em;
+}
+.opacity-50 { opacity: .5; }
+.opacity-75 { opacity: .75; }

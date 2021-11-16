@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block contenu %}
+<div class="modal modal-tour position-static d-block mb-5 pb-5 pt-3 mt-4" id="modalTour" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog mt-4 pt-4 pb-5 mb-5" role="document">
+        <div class="modal-content mb-4 pb-3 rounded-3 shadow-lg bg-secondary">
+            <div class="modal-body py-4">
+                <h4>Liste des albums de {{ user.prenom }} {{ user.nom }}</h4>
+                <a class="btn btn-outline-success w-100 mt-3" href="{% url 'add_album' user.id %}">Ajouter un Album</a>
+                <div class="list-group mt-3 ">
+                    {% for album in albums %}
+                    <a class="w-100 mt-3 list-group-item list-group-item-action list-group-item-dark"
+                       href="{% url 'one_album' album.id %}">
+                        <h2 class="">{{ album.titre}} {% if album.public %}( Album public ){% else %}( Album
+                            privé ){% endif %}</h2>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

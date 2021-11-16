@@ -1,0 +1,19 @@
+{% load static %}
+<div class="bg-dark px-5">
+    <header class="d-flex flex-wrap justify-content-center pt-4 mb-">
+        <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto" href="/">
+            <img class="bi me-2" height=60 src="{% static 'img/logo.png' %}"/>
+        </a>
+        <span class="fs-4 text-muted">Shadow-Photo</span>
+    </header>
+    <nav class="pb-2">
+        <div class="justify-content-center d-flex flex-wrap">
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="/" class="fw-bold nav-link link-light">Accueil</a></li>
+                <li class="nav-item"><a href="/" class="fw-bold nav-link link-light">Tous les utilisateurs</a></li>
+                <li class="nav-item"><a href="{% url 'a_propos' %}" class="fw-bold nav-link link-light">À PROPOS</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
